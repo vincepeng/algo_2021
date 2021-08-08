@@ -55,8 +55,14 @@
 // 👍 2146 👎 0
 
 
+/***
+ * 第一周先用暴力方法来;
+ *2021年08月08日
+ */
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
+
+
     public int removeDuplicates(int[] nums) {
         if (nums == null || nums.length == 0) {
             return 0;
