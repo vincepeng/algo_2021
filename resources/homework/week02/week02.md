@@ -21,7 +21,7 @@
 [[144]二叉树的前序遍历.java](https://github.com/vincepeng/algo_2021/blob/main/tmp/leetcode/editor/cn/%5B144%5D%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%89%8D%E5%BA%8F%E9%81%8D%E5%8E%86.java)
 
 ### hashmap总结
-
+[从面试问题看HashMap](https://github.com/vincepeng/algo_2021/blob/main/resources/homework/week02/hashmap.md)
 hashmap在面试中常考,因此花点时间总结下
 
 ## 2.总结
