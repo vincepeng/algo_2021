@@ -16,57 +16,23 @@ public class SolutionTest {
     }
 
 
-    public List<Integer> inorderTraversal(TreeNode root) {
+    public List<Integer> preorderTraversal(TreeNode root) {
         return useRecursion(root);
     }
 
 
-    private void inorderTraversalRecursion(TreeNode root, List<Integer> results) {
+    private void preorderTraversalRecursion(TreeNode root, List<Integer> results) {
         if (root == null) {
             return;
         }
+        results.add(root.val);
         //叶子节点
         if (root.left != null) {
-            inorderTraversalRecursion(root.left, results);
+            preorderTraversalRecursion(root.left, results);
         }
-        results.add(root.val);
-        if (root.right != null) {
-            inorderTraversalRecursion(root.left, results);
-        }
-    }
-
-
-    private void inorderTraversalRecursionv1(TreeNode root, List<Integer> results) {
-        if (root == null) {
-            return;
-        }
-        //叶子节点
-        if (root.left != null) {
-            TreeNode leftNode = root.left;
-            //如果左边为空,则加入,否则继续遍历左边
-            if (leftNode.left != null) {
-                inorderTraversalRecursion(leftNode, results);
-            }else {
-                results.add(leftNode.val);
-            }
-            if (leftNode.right != null) {
-                inorderTraversalRecursion(leftNode.right, results);
-            }
-
-        }
-
-        results.add(root.val);
 
         if (root.right != null) {
-            TreeNode rightNode = root.right;
-            if (rightNode.left != null) {
-                inorderTraversalRecursion(rightNode, results);
-            }else {
-                results.add(root.right.val);
-            }
-            if (rightNode.right != null) {
-                inorderTraversalRecursion(rightNode.right, results);
-            }
+            preorderTraversalRecursion(root.left, results);
         }
     }
 
@@ -74,7 +40,7 @@ public class SolutionTest {
     //使用递归,最简单的方法
     private List<Integer> useRecursion(TreeNode root) {
         List<Integer> results = new ArrayList<>();
-        inorderTraversalRecursion(root, results);
+        preorderTraversalRecursion(root, results);
         return results;
     }
 

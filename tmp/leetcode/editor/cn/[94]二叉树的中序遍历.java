@@ -74,16 +74,11 @@ class Solution {
         if (root == null) {
             return;
         }
-        //叶子节点
-        if (root.left != null) {
-            inorderTraversalRecursion(root.left, results);
-        }
+        inorderTraversalRecursion(root.left, results);
         results.add(root.val);
-        if (root.right != null) {
-            inorderTraversalRecursion(root.right, results);
-        }
-    }
+        inorderTraversalRecursion(root.right, results);
 
+    }
 
 
     //使用递归,最简单的方法
