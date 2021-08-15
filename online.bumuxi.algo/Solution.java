@@ -54,42 +54,65 @@
 // 👍 2146 👎 0
 
 
-import java.util.Arrays;
+import java.util.HashMap;
 
 
 //leetcode submit region begin(Prohibit modification and deletion)
 public class Solution {
 
     public static void main(String[] args) {
-//        int[] a = {0, 0, 1, 1, 1, 2, 2, 3, 3, 4};
-        int[] a = {1, 1, 2};
-        int i = new Solution().removeDuplicates(a);
-        System.out.println(Arrays.toString(a));
-        System.out.println(i);
+        //        int[] a = {0, 0, 1, 1, 1, 2, 2, 3, 3, 4};
+        String a = "fasddf";
+        String b = "addsff";
+        System.out.println(new Solution().isAnagram(a, b));
     }
 
 
-    //暴力法:如果存在则移位;
-    public int removeDuplicates(int[] nums) {
-        if (nums == null || nums.length == 0) {
-            return 0;
+    /**
+     * 时间复杂度:O(n)+O(n)+O(n)=O(n)
+     */
+    public boolean isAnagram(String s, String t) {
+        if (s == null && t == null) {
+            return true;
+        }
+        if (s == null || t == null) {
+            return false;
         }
 
-        int currentIndex = 0;
-        for (int i = 0; i < nums.length; i++) {
 
-            while (nums[currentIndex] == nums[i]) {
-                //最后一个数字了
-                if (i == nums.length - 1) {
-                    return currentIndex + 1;
-                }else {
-                    //往后移动1位;
-                    ++i;
-                }
+        HashMap<Character, Integer> sourceCntMap = toCharMap(s);
+        HashMap<Character, Integer> targetMap = toCharMap(t);
+        if (sourceCntMap.keySet().size() != targetMap.keySet().size()) {
+            return false;
+        }
+        for (Character c : sourceCntMap.keySet()) {
+            Integer sourceCnt = sourceCntMap.get(c);
+            Integer targetCnt = targetMap.get(c);
+            if (targetCnt == null || !sourceCnt.equals(targetCnt)) {
+                return false;
             }
-            nums[++currentIndex] = nums[i];
         }
-        return currentIndex + 1;
+        return true;
+    }
+
+
+    /***
+     * 将S转换为字符Map
+     * @param s
+     * @return
+     */
+    private HashMap<Character, Integer> toCharMap(String s) {
+        char[] sourceChars = s.toCharArray();
+        HashMap<Character, Integer> sourceCntMap = new HashMap<>();
+        for (int i = 0; i < sourceChars.length; i++) {
+            Integer cnt = sourceCntMap.get(sourceChars[i]);
+            if (cnt == null) {
+                sourceCntMap.put(sourceChars[i], 0);
+            }else {
+                sourceCntMap.put(sourceChars[i], ++cnt);
+            }
+        }
+        return sourceCntMap;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
