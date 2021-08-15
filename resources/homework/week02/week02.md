@@ -18,7 +18,11 @@
 
 ### 第5题
 
-[[94]二叉树的中序遍历.java](https://github.com/vincepeng/algo_2021/blob/main/tmp/leetcode/editor/cn/%5B94%5D%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E4%B8%AD%E5%BA%8F%E9%81%8D%E5%8E%86.java)
+[[144]二叉树的前序遍历.java](https://github.com/vincepeng/algo_2021/blob/main/tmp/leetcode/editor/cn/%5B144%5D%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%89%8D%E5%BA%8F%E9%81%8D%E5%8E%86.java)
+
+### hashmap总结
+
+hashmap在面试中常考,因此花点时间总结下
 
 ## 2.总结
 
@@ -33,6 +37,7 @@
     树的遍历;
     双向链表;
     递归;
+    栈的使用,发现这种先入后出的双向链表对某些场景事半功倍.
 
 ### 改进的点:
 
