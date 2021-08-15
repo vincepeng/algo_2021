@@ -1,5 +1,4 @@
-import java.util.Collections;
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -17,50 +16,91 @@ public class SolutionTest {
     }
 
 
-    public List<Integer> preorder(Node root) {
-        if (root == null) {
-            return Collections.emptyList();
-        }
-        LinkedList<Integer> results = new LinkedList<>();
+    public List<Integer> inorderTraversal(TreeNode root) {
+        return useRecursion(root);
+    }
 
-        LinkedList<Node> deStack = new LinkedList<>();
-        deStack.add(root);
-        while (!deStack.isEmpty()) {
-            Node cur = deStack.poll();
-            //前序放在第一个
-            results.add(cur.val);
-            //最下层叶子节点
-            if (cur.children == null) {
-                continue;
+
+    private void inorderTraversalRecursion(TreeNode root, List<Integer> results) {
+        if (root == null) {
+            return;
+        }
+        //叶子节点
+        if (root.left != null) {
+            inorderTraversalRecursion(root.left, results);
+        }
+        results.add(root.val);
+        if (root.right != null) {
+            inorderTraversalRecursion(root.left, results);
+        }
+    }
+
+
+    private void inorderTraversalRecursionv1(TreeNode root, List<Integer> results) {
+        if (root == null) {
+            return;
+        }
+        //叶子节点
+        if (root.left != null) {
+            TreeNode leftNode = root.left;
+            //如果左边为空,则加入,否则继续遍历左边
+            if (leftNode.left != null) {
+                inorderTraversalRecursion(leftNode, results);
+            }else {
+                results.add(leftNode.val);
             }
-            //先入后出,栈底
-            for (int i = cur.children.size() - 1; i >= 0; i--) {
-                deStack.add(cur.children.get(i));
+            if (leftNode.right != null) {
+                inorderTraversalRecursion(leftNode.right, results);
+            }
+
+        }
+
+        results.add(root.val);
+
+        if (root.right != null) {
+            TreeNode rightNode = root.right;
+            if (rightNode.left != null) {
+                inorderTraversalRecursion(rightNode, results);
+            }else {
+                results.add(root.right.val);
+            }
+            if (rightNode.right != null) {
+                inorderTraversalRecursion(rightNode.right, results);
             }
         }
+    }
+
+
+    //使用递归,最简单的方法
+    private List<Integer> useRecursion(TreeNode root) {
+        List<Integer> results = new ArrayList<>();
+        inorderTraversalRecursion(root, results);
         return results;
     }
 
 
-    class Node {
+    public class TreeNode {
 
-        public int val;
+        int val;
 
-        public List<Node> children;
+        TreeNode left;
+
+        TreeNode right;
 
 
-        public Node() {
+        TreeNode() {
         }
 
 
-        public Node(int _val) {
-            val = _val;
+        TreeNode(int val) {
+            this.val = val;
         }
 
 
-        public Node(int _val, List<Node> _children) {
-            val = _val;
-            children = _children;
+        TreeNode(int val, TreeNode left, TreeNode right) {
+            this.val = val;
+            this.left = left;
+            this.right = right;
         }
     }
 
