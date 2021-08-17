@@ -62,16 +62,64 @@ public class P189_RotateArray {
     public static void main(String[] args) {
         //测试代码
         Solution solution = new P189_RotateArray().new Solution();
-        int[] ints = {1, 2, 3, 4, 5};
-        solution.rotate(ints, 2);
+        int[] ints = {1, 2, 3, 4, 5, 6, 7};
+        solution.rotate(ints, 3);
         System.out.println(Arrays.toString(ints));
+        int[] ints2 = {1, 2};
+        solution.rotate(ints2, 1);
+        //[1,2]->[2,1]->1,2->2,1
+        System.out.println(Arrays.toString(ints2));
+
+        int[] ints3 = {-1, -100, 3, 99};
+        solution.rotate(ints3, 2);
+        //[1,2]->[2,1]->1,2->2,1
+        System.out.println(Arrays.toString(ints3));
+
     }
 
 
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
 
+
         public void rotate(int[] nums, int k) {
+
+            swapTo(nums, k);
+
+        }
+
+
+        //[1,2,3,4,5]
+        private void swap(int[] nums, int start, int end) {
+            int temp;
+            while (start < end) {
+                temp = nums[start];
+                nums[start] = nums[end];
+                nums[end] = temp;
+                start++;
+                end--;
+            }
+
+        }
+
+
+        private void swapTo(int[] nums, int k) {
+            if (k > nums.length) {
+                k = k % nums.length;
+            }
+
+            swap(nums, 0, nums.length - 1);
+            //使用k进行分割
+            swap(nums, 0, k - 1);
+            swap(nums, k, nums.length - 1);
+        }
+
+
+        private void useSublist(int[] nums, int k) {
+            if (k > nums.length) {
+                k = k % nums.length;
+            }
+
             ArrayList<Integer> srcList = new ArrayList<>();
             for (int num : nums) {
                 srcList.add(num);
@@ -82,8 +130,8 @@ public class P189_RotateArray {
             for (int i = 0; i < nums.length; i++) {
                 nums[i] = rightList.get(i);
             }
-
         }
+
     }
     //leetcode submit region end(Prohibit modification and deletion)
 
