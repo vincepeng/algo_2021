@@ -2,11 +2,11 @@
 
 ### 第1题
 
-[347-前 K 个高频元素]()
+[二叉树公共祖先](https://github.com/vincepeng/algo_2021/blob/main/src/main/java/leetcode/editor/cn/PTwo36_LowestCommonAncestorOfABinaryTree.java)
 
 ### 第2题
 
-[两数之和](https://github.com/vincepeng/algo_2021/blob/main/tmp/leetcode/editor/cn/%5B1%5D%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C.java)
+[](https://github.com/vincepeng/algo_2021/blob/main/tmp/leetcode/editor/cn/%5B1%5D%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C.java)
 
 ### 第3题
 
@@ -18,7 +18,7 @@
 
 ### 第5题
 
-[[144]二叉树的前序遍历.java](https://github.com/vincepeng/algo_2021/blob/main/tmp/leetcode/editor/cn/%5B144%5D%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%89%8D%E5%BA%8F%E9%81%8D%E5%8E%86.java)
+[[46]全排列.java](https://github.com/vincepeng/algo_2021/blob/main/tmp/leetcode/editor/cn/%5B144%5D%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%89%8D%E5%BA%8F%E9%81%8D%E5%8E%86.java)
 
 ### hashmap总结
 
