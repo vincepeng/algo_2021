@@ -18,36 +18,26 @@
 
 ### 第5题
 
-[[46]全排列.java](https://github.com/vincepeng/algo_2021/blob/main/tmp/leetcode/editor/cn/%5B144%5D%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%89%8D%E5%BA%8F%E9%81%8D%E5%8E%86.java)
+[[46]全排列.java](https://github.com/vincepeng/algo_2021/blob/main/src/main/java/leetcode/editor/cn/P46_Permutations.java)
 
-### hashmap总结
+### 延迟队列算法总结
 
-[从面试问题看HashMap](https://github.com/vincepeng/algo_2021/blob/main/resources/homework/week02/hashmap.md)
-hashmap在面试中常考,因此花点时间总结下
+这周虽然没有安排分析语言官方数据结构,但是自己看到一个Java的延迟队列实现非常有意思,分享出来.
+
+[DelayWorkQueue实现](DelayedWorkQueue.md)
 
 ## 2.总结
 
 ### 做题总结:
 
-    本周还是选择比较简单的,不过稍微优化了上周的答案;
-    由于非科班出身,对于树遍历了解不多,刚好趁此机会学习下;
-    重点还是分析hashMap实现, 这对面试有好作用;
+本周做题多了一些,反思也多一些,总结单独写到一个文件中.
 
-### 学到的东西
-
-    树的遍历;
-    双向链表;
-    递归;
-    栈的使用,发现这种先入后出的双向链表对某些场景事半功倍.
-
-### 改进的点:
-
-    对双向链表了解不熟悉,这个需要好好回顾下,
+[第三周做题总结](week03_introspection.md)
 
 ### 其它感想
 
-    1. 收到个这个课程的礼物,报名的时候没听说有礼物,算是意外之喜.slogan一直挺喜欢,不过杯子质量感觉稍微差一些,以后送人吧;
-    2. 工作中其实比较少用双向链表,今天刚好熟悉了一下,现在想起来有些地方的逻辑用这个可以简单很多,这个也就是学习算法的好处吧.
+    看到极客时间有个王争的算法专栏,结合实际应用场景,非常有趣,面试常问道,值得学习下.
+
 
 
 
