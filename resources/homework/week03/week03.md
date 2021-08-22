@@ -18,13 +18,17 @@
 
 ### 第5题
 
-### 延迟队列算法总结
+[47-全排列 II](https://github.com/vincepeng/algo_2021/blob/main/src/main/java/leetcode/editor/cn/P47_PermutationsIi.java)
 
-这周虽然没有安排分析语言官方数据结构,但是自己看到一个Java的延迟队列实现非常有意思,分享出来.
+## 2. 分析数据结构
+
+这周虽然没有安排分析语言官方数据结构的作业,但是自己看到一个Java的延迟队列实现非常有意思,分享出来.
+
+### 延迟队列算法总结
 
 [DelayWorkQueue实现](DelayedWorkQueue.md)
 
-## 2.总结
+## 3.总结
 
 ### 做题总结:
 
