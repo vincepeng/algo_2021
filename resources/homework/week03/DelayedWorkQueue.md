@@ -39,7 +39,8 @@ private void siftUp(int k,RunnableScheduledFuture<?> key){
 
 ```
 
-![如下图:](./algo/resources/static/images/delayedWorkQueue.png)
+![如下图:](../../static/images/delayedWorkQueue.png)
+![如下图:](/algo/resources/static/images/delayedWorkQueue.png)
 
 ### 感想
 
