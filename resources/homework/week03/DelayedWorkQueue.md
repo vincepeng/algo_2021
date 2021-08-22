@@ -36,13 +36,13 @@ private void siftUp(int k,RunnableScheduledFuture<?> key){
         queue[k]=key;
         setIndex(key,k);
         }
-        ![如下图:](./resources/static/images/delayedWorkQueue.png)
-
 
 ```
 
+![如下图:](./algo/resources/static/images/delayedWorkQueue.png)
+
 ### 感想
 
-doug.l 真是一个天才人物
+真是有趣!
 
 [具体说明](https://www.jianshu.com/p/925dba9f5969)
