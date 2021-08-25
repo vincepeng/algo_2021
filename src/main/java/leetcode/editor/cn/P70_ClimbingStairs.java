@@ -29,22 +29,14 @@ public class P70_ClimbingStairs {
 
         private int doClimbStairs(int n) {
             //终止;
-            if (n == 0) {
-                return 0;
-            }
-            if (n == 1) {
-                return 1;
-            }
-            if (n == 2) {
-                return 2;
+            if (n == 0 || n == 1 || n == 2) {
+                return n;
             }
             Integer cnt = solutions.get(n);
             if (cnt == null) {
-                int n_2_cnt = doClimbStairs(n - 2);
-                int n_1_cnt = doClimbStairs(n - 1);
-                int i = n_2_cnt + n_1_cnt;
-                solutions.put(n, i);
-                return i;
+                int n_cnt = doClimbStairs(n - 2) + doClimbStairs(n - 1);
+                solutions.put(n, n_cnt);
+                return n_cnt;
             }else {
                 return cnt;
             }
