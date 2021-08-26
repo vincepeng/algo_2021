@@ -1,5 +1,8 @@
 package leetcode.editor.cn;
 
+import java.util.ArrayDeque;
+
+
 //122-买卖股票的最佳时机 II
 public class P122_BestTimeToBuyAndSellStockIi {
 
@@ -17,11 +20,20 @@ public class P122_BestTimeToBuyAndSellStockIi {
     class Solution {
 
         public int maxProfit(int[] prices) {
+            //            return useIteration(prices);
+            return useStack(prices);
+
+        }
+
+
+        //用时30分钟
+        private int useIteration(int[] prices) {
             if (prices.length == 0) {
                 return 0;
             }
             int totalProfit = 0;
             int buyPrice = prices[0];
+            //O(N)
             for (int i = 1; i < prices.length; i++) {
                 int currentPrice = prices[i];
                 if (currentPrice < buyPrice) {
@@ -48,6 +60,40 @@ public class P122_BestTimeToBuyAndSellStockIi {
                 }
 
             }
+            return totalProfit;
+        }
+
+
+        private int useStack(int[] prices) {
+            if (prices.length == 0) {
+                return 0;
+            }
+            ArrayDeque<Integer> stack = new ArrayDeque<>(prices.length);
+
+            //O(n)
+            for (int i = 0; i < prices.length; i++) {
+                if (stack.size() % 2 == 1) {
+                    //当前值,比栈顶小,则替换
+                    if (prices[i] < stack.peekLast()) {
+                        stack.pollLast();
+                    }
+                    stack.offerLast(prices[i]);
+                    //寻找卖出价
+                }else {
+                    //当前值,比栈顶大,则替换
+                    if (stack.size() > 0 && prices[i] > stack.peekLast()) {
+                        stack.pollLast();
+                    }
+                    stack.offerLast(prices[i]);
+                }
+            }
+            //O(n/2)
+            int totalProfit = 0;
+            while (stack.size() > 1) {
+                totalProfit += -(stack.pollFirst() - stack.pollFirst());
+            }
+
+
             return totalProfit;
         }
     }
