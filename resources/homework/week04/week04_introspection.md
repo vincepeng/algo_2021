@@ -19,7 +19,7 @@
 4. [重要]看了贪心算法,非常优雅,但是不能精确基础那天售卖,但是巧妙利用差求和;
 
 ### 860-柠檬水找零(P860_LemonadeChange)
-
+https://github.com/vincepeng/algo_2021/blob/main/src/main/java/leetcode/editor/cn/P860_LemonadeChange.java
 1. 10分钟,典型的CRUD题目,写起来比较简单,主要花在思考和review代码上面;
 2. 看了下题解,使用数字记录就行了,第一次使用的链表
 
