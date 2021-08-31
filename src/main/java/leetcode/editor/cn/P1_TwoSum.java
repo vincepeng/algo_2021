@@ -43,7 +43,6 @@ public class P1_TwoSum {
                 current = nums[i];
                 left = target - current;
                 Integer prevIndex = map.get(current);
-
                 if (prevIndex != null) {
                     return new int[]{prevIndex, i};
                 }
