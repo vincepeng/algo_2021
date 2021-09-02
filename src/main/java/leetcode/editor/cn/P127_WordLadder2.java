@@ -71,9 +71,6 @@ public class P127_WordLadder2 {
         private void doFind(String endWord, LinkedList<String> wordsRecords, HashMap<Integer, Map<String, List<Pair>>> wordIndexMap) {
             //终止条件;(单词用完)
             String currentWord = wordsRecords.getLast();
-            if (wordsRecords.size() > 30) {
-                return;
-            }
             subStrResult.put(currentWord, wordsRecords.size());
             //当前当前满足条件了
             if (currentWord.equals(endWord)) {
@@ -97,7 +94,7 @@ public class P127_WordLadder2 {
             }
 
             //当前层逻辑
-            //依次查看仅相差一个单测的
+            //依次查看仅相差一个单词的
             List<String> children = getChildren(currentWord, wordIndexMap, wordsRecords);
             if (children.isEmpty()) {
                 //没有子类直接拒绝
