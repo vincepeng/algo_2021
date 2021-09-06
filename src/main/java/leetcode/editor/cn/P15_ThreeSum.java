@@ -26,7 +26,7 @@ public class P15_ThreeSum {
     /**
      * 算法复杂度:使用while进行去重
      *
-     * @param nums 数组 快速排序 log(n)+遍历和假币O(N2)
+     * @param nums 数组 快速排序 O(nlog(n))+遍历和假币O(N2)
      */
     private List<List<Integer>> usePoint1(int[] nums) {
         //指针方法
@@ -82,7 +82,7 @@ public class P15_ThreeSum {
         /**
          * 算法复杂度:
          *
-         * @param nums 数组 快速排序 log(n)+遍历和假币O(N2)
+         * @param nums 数组 快速排序 nlog(n)+遍历和假币O(N2)
          */
         private List<List<Integer>> usePoint2(int[] nums) {
             //指针方法

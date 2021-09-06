@@ -97,7 +97,7 @@ public class P127_WordLadder {
             }
 
             while (wordsRecords.size() > 0) {
-                String currentWord = wordsRecords.poll();
+                currentWord = wordsRecords.poll();
                 List<String> children = getChildren(currentWord, wordIndexMap, wordsRecords);
                 doSearchNextLevel(children, wordsRecords, wordIndexMap, endWord);
 
@@ -110,7 +110,7 @@ public class P127_WordLadder {
 
 
         private void doSearchNextLevel(List<String> children, LinkedList<String> wordsRecords, HashMap<Integer, Map<String, List<Pair>>> wordIndexMap, String endWord) {
-            wordsRecords.addLast();
+            //            wordsRecords.addLast();
             for (String child : children) {
                 if (child.equals(endWord)) {
                     wordsRecords.addLast(child);
