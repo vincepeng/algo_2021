@@ -12,6 +12,7 @@ public class P74_SearchA2dMatrix {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
 
+
         public boolean searchMatrix(int[][] matrix, int target) {
             int m = matrix.length, n = matrix[0].length;
             int low = 0, high = m * n - 1;
@@ -27,6 +28,33 @@ public class P74_SearchA2dMatrix {
                 }
             }
             return false;
+        }
+
+
+        public boolean searchMatrix2(int[][] matrix, int target) {
+            int m = matrix.length;
+            if (m == 0) {
+                return false;
+            }
+            int n = matrix[0].length;
+            if (n == 0) {
+                return false;
+            }
+            int high = m * n - 1;
+            int low = 0;
+            while (low <= high) {
+                int mid = (low + high) / 2;
+                int midValue = matrix[mid / m][m % m];
+                if (midValue < target) {
+                    low = mid;
+                }else if (midValue > target) {
+                    high = mid;
+                }else {
+                    return true;
+                }
+            }
+            return false;
+
         }
     }
     //leetcode submit region end(Prohibit modification and deletion)
