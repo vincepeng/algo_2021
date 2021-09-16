@@ -11,32 +11,32 @@ public class P53_MaximumSubarray {
     }
 
 
-    /**
-     * 复杂度O(N)
-     */
-    private int useDp(int[] nums) {
-        //动态规划
-        //状态dp[n]
-        //转移方程:dp[n]=dp[n-1]+nums[n]
-        //int max=Math.max(dp[n],i)
-        int next, pre = nums[0];
-        int max = 0;
-        for (int i = 1; i < nums.length; i++) {
-            next = pre > 0 ? pre + nums[i] : nums[i];
-            pre = next;
-            max = Math.max(next, max);
-        }
-        return max;
-
-    }
-
-
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
 
         public int maxSubArray(int[] nums) {
 
-            return useStrategy(nums);
+            return useDp(nums);
+        }
+
+
+        /**
+         * 复杂度O(N)
+         */
+        private int useDp(int[] nums) {
+            //动态规划
+            //状态dp[n]
+            //转移方程:dp[n]=dp[n-1]+nums[n]
+            //int max=Math.max(dp[n],i)
+            int next, pre = nums[0];
+            int max = pre;
+            for (int i = 1; i < nums.length; i++) {
+                next = pre > 0 ? pre + nums[i] : nums[i];
+                pre = next;
+                max = Math.max(next, max);
+            }
+            return max;
+
         }
 
 
