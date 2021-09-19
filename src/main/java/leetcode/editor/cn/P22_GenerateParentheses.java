@@ -10,7 +10,7 @@ public class P22_GenerateParentheses {
     public static void main(String[] args) {
 
         Solution solution = new P22_GenerateParentheses().new Solution();
-        solution.generateParenthesis(3);
+        System.out.println(solution.generateParenthesis(3));
     }
 
 
