@@ -16,15 +16,19 @@ public class P367_ValidPerfectSquare {
     class Solution {
 
         public boolean isPerfectSquare(int num) {
-            if (num == 1)
+            return useBinarySearch(num);
+        }
+
+
+        private boolean useBinarySearch(int num) {
+            if (num == 1) {
                 return true;
-            long currentResult;
+            }
             int start = 1;
             int end = num;
-
             while (start <= end) {
-                int mid = start + (end - start) / 2;
-                currentResult = (long) mid * mid;
+                int mid = (start + end) / 2;
+                long currentResult = (long) mid * mid;
                 if (currentResult == num) {
                     return true;
                     //太小,往右边移动
@@ -36,6 +40,12 @@ public class P367_ValidPerfectSquare {
                 }
             }
             return false;
+        }
+
+
+        public boolean useMathLib(int num) {
+            int sqrt = (int) Math.sqrt(num);
+            return sqrt * sqrt == num;
         }
     }
     //leetcode submit region end(Prohibit modification and deletion)
