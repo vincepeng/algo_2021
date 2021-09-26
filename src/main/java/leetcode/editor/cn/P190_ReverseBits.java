@@ -22,7 +22,7 @@ public class P190_ReverseBits {
         // you need treat n as an unsigned value
         //110101
         public int reverseBits(int n) {
-            return useShift(n);
+            return useShift2(n);
             //            return useArray(n);
         }
 
@@ -44,6 +44,18 @@ public class P190_ReverseBits {
 
             }
             return result;
+        }
+
+
+        private int useShift2(int n) {
+            int ret = 0;
+            for (int i = 0; i < 32; i++) {
+                //保留最后一位
+                ret |= (n >>> i & 1) << (31 - i);
+
+            }
+            return ret;
+
         }
     }
     //leetcode submit region end(Prohibit modification and deletion)
