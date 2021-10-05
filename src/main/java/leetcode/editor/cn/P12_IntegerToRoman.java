@@ -6,10 +6,20 @@ public class P12_IntegerToRoman {
     public static void main(String[] args) {
 
         Solution solution = new P12_IntegerToRoman().new Solution();
-        System.out.println(solution.intToRoman(1994));
-        System.out.println(solution.intToRoman(58));
-        System.out.println(solution.intToRoman(9));
+        //        System.out.println(solution.intToRoman(1994));
+        //        System.out.println(solution.intToRoman(58));
+        //        System.out.println(solution.intToRoman(9));
+        //        System.out.println(solution.intToRoman(1600));
+        //        System.out.println(solution.intToRoman(1400));
+
+
+        //1200(M->200->200->MCC)
+        //1600(M->600(D)->100(C)->MDC
+        //1900(M900->D400->100(CD)->MCM
+        //1400(M400->D400->100(CD)->MCD
+        System.out.println(solution.intToRoman(1200));
         System.out.println(solution.intToRoman(1600));
+        System.out.println(solution.intToRoman(1900));
         System.out.println(solution.intToRoman(1400));
     }
 
@@ -18,13 +28,16 @@ public class P12_IntegerToRoman {
     class Solution {
 
         public String intToRoman(int num) {
+            //            return useDiv(num);
+            return useSub(num);
+        }
+
+
+        //用除法
+        private String useDiv(int num) {
             int[] array = {1, 5, 10, 50, 100, 500, 1000};
             String[] arrayStr = {"I", "V", "X", "L", "C", "D", "M"};
 
-            //1200(M->200->200->MCC)
-            //1600(M->600(D)->100(C)->MDC
-            //1900(M900->D400->100(CD)->MCM
-            //1400(M400->D400->100(CD)->MCD
             int left = num;
             int index = array.length - 1;
             StringBuilder sb = new StringBuilder();
@@ -55,6 +68,22 @@ public class P12_IntegerToRoman {
                 }
                 left = left % array[index];
                 index--;
+            }
+            return sb.toString();
+        }
+
+
+        private String useSub(int num) {
+            int[] array = {1, 4, 5, 9, 10, 40, 50, 90, 100, 400, 500, 900, 1000};
+            String[] arrayStr = {"I", "IV", "V", "IX", "X", "XL", "L", "XC", "C", "CD", "D", "CM", "M"};
+            StringBuilder sb = new StringBuilder();
+
+            for (int i = array.length - 1; i >= 0; i--) {
+                while (num >= array[i]) {
+                    sb.append(arrayStr[i]);
+                    num -= array[i];
+                }
+
             }
             return sb.toString();
         }
