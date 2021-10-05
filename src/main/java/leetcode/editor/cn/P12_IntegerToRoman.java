@@ -1,8 +1,5 @@
 package leetcode.editor.cn;
 
-import java.util.HashMap;
-
-
 //12-整数转罗马数字
 public class P12_IntegerToRoman {
 
@@ -23,10 +20,7 @@ public class P12_IntegerToRoman {
         public String intToRoman(int num) {
             int[] array = {1, 5, 10, 50, 100, 500, 1000};
             String[] arrayStr = {"I", "V", "X", "L", "C", "D", "M"};
-            HashMap<Integer, String> map = new HashMap<>();
-            for (int i = 0; i < array.length; i++) {
-                map.put(array[i], arrayStr[i]);
-            }
+
             //1200(M->200->200->MCC)
             //1600(M->600(D)->100(C)->MDC
             //1900(M900->D400->100(CD)->MCM
