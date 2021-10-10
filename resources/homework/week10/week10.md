@@ -1,5 +1,6 @@
 ### 第1题 LRU缓存
 https://github.com/vincepeng/algo_2021/blob/main/src/main/java/leetcode/editor/cn/P146_LruCache_Use_Link_HashMap.java
+https://github.com/vincepeng/algo_2021/blob/main/src/main/java/leetcode/editor/cn/P146_LruCache.java
 
 ### 第3题:231-2 的幂
 
