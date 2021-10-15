@@ -53,8 +53,17 @@ public class P46_Permutations {
         public List<List<Integer>> permute(int[] nums) {
             //广度优先遍历,放入queue,哦.不需要判重
             //是否递归,拆分子任务的方式.先用递归吧;
-            return useRecursive(nums);
+            //            return useRecursive(nums);
+            return useSearch(nums);
 
+        }
+
+
+        private List<List<Integer>> useSearch(int[] nums) {
+            //f
+
+
+            return null;
         }
 
 

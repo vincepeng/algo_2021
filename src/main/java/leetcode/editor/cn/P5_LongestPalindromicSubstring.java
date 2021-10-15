@@ -6,12 +6,10 @@ public class P5_LongestPalindromicSubstring {
     public static void main(String[] args) {
 
         Solution solution = new P5_LongestPalindromicSubstring().new Solution();
-        System.out.println(solution.longestPalindrome("abb"));
-        System.out.println(solution.longestPalindrome(
-                "dumpyxybklgdwxbmhptxdckihigddiqzcyvhjhxdekozqxkwaiassrxalcnrlqjbakekgkbpsznmxfvdlhjuokdvzuetuoargsrrfboenozkrglrjnmlsntrxafvqfjniugdzxeutyjybdqfyqmqlkhgvryuwegoibobkstpirzdaspjyxddnyniaywgziqbmkwqaotxirlimlhiuxoyxwsnnmsyzpfxlatnpdqvbiafzqkfssetleiobwwpubzumgittqtrjzeioxkrujkdgzfykyypvnpsxnouxeeqmarjploacjntpixpglugxtiwycmeywhnjyqsmbgxchhtlpjesmhoaskatbfvqodtboozgwlpqclkigpqzvatavdzvgoibmygjsskynldvxevbprdxzpqcpuokyqyseyrekoiipoytftnwqawykfpcqriuazjoqucjkyknmcbiykqerpxxdkqlxvlijqegpexvylgkqygbgkicwmplnwubjwqnarulzlbrdftmzyrzhrmfqoiwzlncdreqaiipnqlwffxircopksnwizmyvzfphlqlvqpcsfjmyssrheczllgkvnretmtixoibncraddatreejidxilnplcrufhdgktvkzuaggcumykgklypodjrpdpjcneagjfxahtjeurotkufkmxsoelzpttfeugdculuxjddghlisdytyjwwnftjbvrwyntqwqjrwlfynczndjyiyaxozdlgdzjseyfumvxuclmszawzwiunwqouycmfgkpzgivsemxamnfjzcabkgkgxcruqhpbkzhpdrcexnioaxbjwxbuipnjbsujajpnqeckfgxyuydytrfhhwsxfjeahpiaoojdwkzstnxflxddljpbhfirteejbtcxpvwutsgrrjv"));
-        //        System.out.println(solution.longestPalindrome2("cabbac"));
-        //        System.out.println(solution.longestPalindrome2("babad"));
-        //        System.out.println(solution.longestPalindrome2("cbbd"));
+        System.out.println(solution.longestPalindrome("ac"));
+        System.out.println(solution.longestPalindrome("abba"));
+        System.out.println(solution.longestPalindrome("a"));
+        System.out.println(solution.longestPalindrome("babad"));
     }
 
 
@@ -19,11 +17,28 @@ public class P5_LongestPalindromicSubstring {
     class Solution {
 
         public String longestPalindrome(String s) {
-            for (int i = 0; i < s.length(); i++) {
-
-
+            if (s == null || s.length() < 2) {
+                return s;
             }
-            return null;
+
+            int len = s.length();
+            boolean[][] dp = new boolean[len][len];
+            //从i->j是否回文(true
+            //递归情况为dp[i][j]=s[i]==s[j]&&dp[i-1][j-1]||奇数
+            int maxLen = 0;
+            int start = 0;
+            for (int left = len - 1; left >= 0; left--) {
+                for (int right = left; right < len; right++) {
+                    //aba
+                    //abba(前面一个为奇数,后面一个为偶数)
+                    dp[left][right] = s.charAt(left) == s.charAt(right) && (right - left < 2 || dp[left + 1][right - 1]);
+                    if (dp[left][right] && (right - left + 1 > maxLen)) {
+                        maxLen = right - left + 1;
+                        start = left;
+                    }
+                }
+            }
+            return s.substring(start, start + maxLen);
         }
 
 
